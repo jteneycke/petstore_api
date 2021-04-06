@@ -29,6 +29,20 @@ module Routes
           })
         end
 
+        desc 'Update a Pet.'
+        params do
+          requires :id, type: String, desc: 'Pet ID.'
+          optional :name, type: String, desc: 'Pet name.'
+          optional :species, type: String, desc: 'Pet species.'
+          optional :weight, type: String, desc: 'Pet weight.'
+          optional :size, type: String, desc: 'Pet size.'
+        end
+        put ':id' do
+          Pet.find(params[:id]).update({
+            name: params[:name]
+          })
+        end
+
         desc 'Delete a Pet.'
         params do
           requires :id, type: String, desc: 'Pet ID.'

@@ -33,5 +33,13 @@ class ApiV1PetsTest < ApiV1TestCase
     assert_equal "Polly", json_response[:name]
   end
 
+  def test_update_pet
+    id = Pet.first.id
+    put "/v1/pets/#{id}", {
+      name: "Bruce"
+    }
+
+    assert_equal "Bruce", Pet.first.name
+  end
 
 end
