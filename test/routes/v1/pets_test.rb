@@ -22,11 +22,16 @@ class ApiV1PetsTest < ApiV1TestCase
     assert_equal (pre_count - 1), post_count
   end
 
-  # def test_create_pet
-  #   post "/v1/pets/"
+  def test_create_pet
+    post "/v1/pets/", {
+      name: "Polly",
+      species: "Parrot",
+      size: "extra_small",
+      weight: "1lbs"
+    }
 
-  #   assert_equal id, json_response[:id]
-  # end
+    assert_equal "Polly", json_response[:name]
+  end
 
 
 end

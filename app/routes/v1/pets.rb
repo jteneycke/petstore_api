@@ -13,6 +13,22 @@ module Routes
           end
         end
 
+        desc 'Create a Pet.'
+        params do
+          requires :name, type: String, desc: 'Pet name.'
+          requires :species, type: String, desc: 'Pet species.'
+          requires :weight, type: String, desc: 'Pet weight.'
+          requires :size, type: String, desc: 'Pet size.'
+        end
+        post do
+          Pet.create!({
+            name: params[:name],
+            species: params[:species],
+            weight: params[:weight],
+            size: params[:size],
+          })
+        end
+
         desc 'Delete a Pet.'
         params do
           requires :id, type: String, desc: 'Pet ID.'
