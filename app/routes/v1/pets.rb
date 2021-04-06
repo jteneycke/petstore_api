@@ -38,7 +38,7 @@ module Routes
           optional :size, type: String, desc: 'Pet size.'
         end
         put ':id' do
-          Pet.find(params[:id]).update({
+          Pet.find(params[:id]).update!({
             name: params[:name]
           })
         end
