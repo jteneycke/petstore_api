@@ -5,6 +5,7 @@ module Routes
       format :json
 
       mount Routes::V1::Pets
+      add_swagger_documentation
     end
   end
 end
